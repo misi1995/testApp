@@ -40,4 +40,3 @@ export default {
   lightGreen: '#60C283',
   lightGreenZeroPointTwoTransparency: 'rgba(96,194,131,0.2)',
 };
-

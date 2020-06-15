@@ -3,7 +3,7 @@
  * [日期] 2018-04-01
  * [作者] sun
  */
-import { InteractionManager } from 'react-native';
+import {InteractionManager} from 'react-native';
 
 let unBlocking = true;
 const debounce = (navigation, routeName, params = {}) => {
