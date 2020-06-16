@@ -1,20 +1,42 @@
+/* eslint-disable react-native/no-inline-styles */
 import Wallet from '../src/drawer/Wallet';
 import Invite from '../src/drawer/Invite';
 import CardCoupons from '../src/drawer/CardCoupons';
 import React from 'react';
+import {StyleSheet, View, Text, ImageBackground} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Stack from './StackNavigation';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {
+  DrawerContentScrollView,
+  DrawerItemList,
+  DrawerItem,
+} from '@react-navigation/drawer';
+import menu from '../images/menu.gif';
+import screen from '../utils/screen';
+import background from '../images/bbb.png';
 
 const Drawer = createDrawerNavigator();
+const image = {uri: 'https://reactjs.org/logo-og.png'};
+
+function CustomDrawerContent(props) {
+  return (
+    <DrawerContentScrollView {...props}>
+      <ImageBackground source={image} style={styles.image} />
+      <View style={styles.menuContainer}>
+        <Text style={styles.menuText}>MENU</Text>
+      </View>
+      <DrawerItemList {...props} />
+    </DrawerContentScrollView>
+  );
+}
 
 function MyDrawer() {
   return (
     <Drawer.Navigator
-      // eslint-disable-next-line react-native/no-inline-styles
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
       drawerStyle={{
-        paddingTop: 200,
-        width: 240,
+        width: 300,
       }}>
       <Drawer.Screen
         name="Home"
@@ -61,3 +83,37 @@ function MyDrawer() {
 }
 
 export default MyDrawer;
+
+const styles = StyleSheet.create({
+  menuContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 100,
+    paddingTop: 100,
+  },
+  menuText: {
+    fontSize: 30,
+    color: '#a1a1a1',
+  },
+  bgImg: {
+    flex: 1,
+  },
+  allContainer: {
+    height: screen.height + 50,
+  },
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  image: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
+  text: {
+    color: 'grey',
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
+});

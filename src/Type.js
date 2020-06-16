@@ -30,7 +30,6 @@ export default function Details() {
   });
 
   function _deleteItem(index) {
-    console.log('1111');
     let subArr = [...arr];
     subArr.splice(index, 1);
     dispatch(addTodo(subArr));

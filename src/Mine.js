@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
-// import {Avatar} from 'react-native-elements';
-// import {Avatar, Overlay} from 'react-native-elements';
 import {connect} from 'react-redux';
 import {Avatar, Icon} from '@ui-kitten/components';
 import background from '../images/bbb.png';
 import screen from '../utils/screen';
-// import Icon from 'react-native-vector-icons/FontAwesome';
 
 class Details extends Component {
   static navigationOptions = {
@@ -92,40 +89,6 @@ class Details extends Component {
               );
             })}
           </View>
-          {/* <View style={styles.content}>
-            <View style={styles.eachItem}>
-              <Icon
-                name="briefcase-outline"
-                fill="#FFFFFF"
-                style={styles.icon}
-              />
-              <Text style={styles.itemText}>消费清单</Text>
-            </View>
-            <View style={styles.eachItem}>
-              <Icon
-                name="briefcase-outline"
-                fill="#FFFFFF"
-                style={styles.icon}
-              />
-              <Text style={styles.itemText}>消费清单</Text>
-            </View>
-            <View style={styles.eachItem}>
-              <Icon
-                name="briefcase-outline"
-                fill="#FFFFFF"
-                style={styles.icon}
-              />
-              <Text style={styles.itemText}>消费清单</Text>
-            </View>
-            <View style={styles.eachItem}>
-              <Icon
-                name="briefcase-outline"
-                fill="#FFFFFF"
-                style={styles.icon}
-              />
-              <Text style={styles.itemText}>消费清单</Text>
-            </View>
-          </View> */}
         </View>
       </View>
     );

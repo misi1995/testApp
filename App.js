@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import Drawer from './navi/DrawerNavigation';
 import Stack from './navi/StackNavigation';
@@ -10,6 +10,7 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 // import Group from './js/components/Group';
 import rootReducer from './reducers/reducers';
+import SplashScreen from 'react-native-splash-screen';
 
 const App = () => {
   return (
@@ -22,13 +23,34 @@ const App = () => {
 // export default App;
 const store = createStore(rootReducer);
 
-export default () => (
-  <>
-    <IconRegistry icons={EvaIconsPack} />
-    <ApplicationProvider {...eva} theme={eva.light}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </ApplicationProvider>
-  </>
-);
+export default class WelcomePage extends Component {
+  componentDidMount() {
+    // do stuff while splash screen is shown
+    // After having done stuff (such as async tasks) hide the splash screen
+    SplashScreen.hide();
+  }
+
+  render() {
+    return (
+      <>
+        <IconRegistry icons={EvaIconsPack} />
+        <ApplicationProvider {...eva} theme={eva.light}>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </ApplicationProvider>
+      </>
+    );
+  }
+}
+
+// export default () => (
+//   <>
+//     <IconRegistry icons={EvaIconsPack} />
+//     <ApplicationProvider {...eva} theme={eva.light}>
+//       <Provider store={store}>
+//         <App />
+//       </Provider>
+//     </ApplicationProvider>
+//   </>
+// );
